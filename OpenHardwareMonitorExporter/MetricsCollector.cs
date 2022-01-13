@@ -9,13 +9,18 @@ namespace OpenHardwareMonitorExporter
         private MetricsVisitor _visitor;
         private Computer _computer;
 
+        // TODO: Dynamically enable / disable sensor groups
         public MetricsCollector(CollectorRegistry registry)
         {
             _visitor = new MetricsVisitor(registry);
 
             _computer = new Computer()
             {
+                MainboardEnabled = true,
                 CPUEnabled = true,
+                RAMEnabled = true,
+                GPUEnabled = true,
+                //HDDEnabled = true,
             };
         }
 
