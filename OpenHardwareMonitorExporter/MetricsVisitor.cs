@@ -28,28 +28,31 @@ namespace OpenHardwareMonitorExporter
 
         public void VisitSensor(ISensor sensor)
         {
-            if (sensor.Hardware.HardwareType == HardwareType.CPU)
+            if (sensor.Value != null)
             {
-                var metricName = $"ohm_cpu_{sensor.SensorType.ToString().ToLowerInvariant()}";
-                var hw = sensor.Hardware.Identifier.ToString();
-                var help = "TODO";
-                switch (sensor.SensorType)
+                if (sensor.Hardware.HardwareType == HardwareType.CPU)
                 {
-                    case SensorType.Clock:
-                        help = "Clock [MHz]";
-                        break;
-                    case SensorType.Load:
-                        help = "Load [%]";
-                        break;
-                    case SensorType.Temperature:
-                        help = "Temperature [C]";
-                        break;
-                    case SensorType.Power:
-                        help = "Power consumption [W]";
-                        break;
+                    var metricName = $"ohm_cpu_{sensor.SensorType.ToString().ToLowerInvariant()}";
+                    var hw = sensor.Hardware.Identifier.ToString();
+                    var help = "TODO";
+                    switch (sensor.SensorType)
+                    {
+                        case SensorType.Clock:
+                            help = "Clock [MHz]";
+                            break;
+                        case SensorType.Load:
+                            help = "Load [%]";
+                            break;
+                        case SensorType.Temperature:
+                            help = "Temperature [C]";
+                            break;
+                        case SensorType.Power:
+                            help = "Power consumption [W]";
+                            break;
+                    }
+                    var gauge = Metrics.WithCustomRegistry(_registry).CreateGauge(metricName, help, "hw", "name");
+                    gauge.Labels(hw, sensor.Name).Set(sensor.Value.Value);
                 }
-                var gauge = Metrics.WithCustomRegistry(_registry).CreateGauge(metricName, help, "hw", "name");
-                gauge.Labels(hw, sensor.Name).Set(sensor.Value.Value);
             }
         }
     }
