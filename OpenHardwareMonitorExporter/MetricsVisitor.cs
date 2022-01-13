@@ -72,8 +72,15 @@ namespace OpenHardwareMonitorExporter
                     var hw = sensor.Hardware.Identifier.ToString();
                     var help = SensorTypeToHelp(sensor.SensorType);
 
-                    var gauge = Metrics.WithCustomRegistry(_registry).CreateGauge(metricName, help, "hw", "name");
-                    gauge.Labels(hw, sensor.Name).Set(sensor.Value.Value);
+                    try
+                    {
+                        var gauge = Metrics.WithCustomRegistry(_registry).CreateGauge(metricName, help, "hw", "name");
+                        gauge.Labels(hw, sensor.Name).Set(sensor.Value.Value);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Console.WriteLine(ex.ToString());
+                    }
                 }
             }
         }
