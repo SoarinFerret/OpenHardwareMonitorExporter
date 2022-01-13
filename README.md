@@ -1,6 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/8je2pyhqtj9bhdi6?svg=true)](https://ci.appveyor.com/project/rgl/openhardwaremonitorexporter)
+# OpenHardwareMonitorExporter
 
-This is a [Prometheus Exporter](https://prometheus.io/docs/instrumenting/exporters/) Windows service for the [Open Hardware Monitor](http://openhardwaremonitor.org/) CPU sensors.
+This is a [Prometheus Exporter](https://prometheus.io/docs/instrumenting/exporters/) Windows service for the [Open Hardware Monitor](http://openhardwaremonitor.org/) sensors.
 
 Install the Windows service with:
 
@@ -9,3 +9,7 @@ Install the Windows service with:
 ```
 
 **NB** you can change the default url (`http://localhost:9398/metrics`) with the `-url` parameter, e.g., `-url:http://localhost:9398/ohm/metrics`.
+
+## Special Thanks
+
+Original credit for initial source: https://github.com/rgl/OpenHardwareMonitorExporter

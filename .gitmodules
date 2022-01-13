@@ -1,4 +1,4 @@
 [submodule "OpenHardwareMonitor"]
 	path = OpenHardwareMonitor
-	url = https://github.com/rgl/openhardwaremonitor.git
+	url = https://github.com/openhardwaremonitor/openhardwaremonitor.git
 	branch = master

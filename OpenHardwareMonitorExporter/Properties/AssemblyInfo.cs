@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Open Hardware Monitor Exporter")]
-[assembly: AssemblyDescription("Open Hardware Monitor Prometheus Exporter (https://github.com/rgl/OpenHardwareMonitorExporter)")]
+[assembly: AssemblyDescription("Open Hardware Monitor Prometheus Exporter (https://github.com/soarinferret/OpenHardwareMonitorExporter)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ruilopes.com")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("OpenHardwareMonitorExporter")]
 [assembly: AssemblyCopyright("http://mozilla.org/MPL/2.0/")]
 [assembly: AssemblyTrademark("")]
